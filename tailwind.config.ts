@@ -8,6 +8,7 @@ export default <Partial<Config>>{
         square: '1 / 1',
         video: '16 / 9'
       },
-	  plugins: [],
+	  plugins: []
     }
   }
+}
