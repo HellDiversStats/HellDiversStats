@@ -3,10 +3,18 @@
 	  <div class="row justify-content-center">
 		<div class="col-md-10">
 		  <h1 class="text-center mb-4 text-light">Helldivers Stats</h1>
-		  <div class="chart-container mx-auto">
-			<LivePlayerCount />
-			<historicalPlayerCountChart />
+			<div class="chart-container mx-auto">
+
+				<LivePlayerCountTable />
+
+			</div>		  
+			
+			<div class="chart-container mx-auto">
+
+				<historicalPlayerCountChart />
+
 		  </div>
+
 		</div>
 	  </div>
 	</div>
@@ -14,10 +22,10 @@
   
   <script>
 
-  import LivePlayerCountTable from '~/components/playerCount/livePlayerCountTable.vue'
-  import historicalPlayerCountChart from '~/components/playerCount/historicalPlayerCountChart.vue'
-  
-  
+	import LivePlayerCountTable from '~/components/playerCount/livePlayerCountTable.vue'
+	import historicalPlayerCountChart from '~/components/playerCount/historicalPlayerCountChart.vue'
+
+
   export default {
 	components: {
 		LivePlayerCountTable,

@@ -10,7 +10,8 @@
       <button class="btn btn-color btn-small" @click="fetchAndRenderData('1yr')">Last 1 Year</button>
     </div>
     <Line
-      v-if="chartData.datasets.length"  :data="chartData"
+      v-if="chartData.datasets.length"
+      :data="chartData"
       :options="chartOptions"
       ref="lineChart"
     />
@@ -31,7 +32,6 @@
 .btn-small {
   padding: 5px 10px;
 }
-
 </style>
 
 
@@ -96,33 +96,31 @@ const chartOptions = {
         text: 'Player Count'
       }
     }
+  },
+  // Enable zoom and pan plugins
+  plugins: {
+    zoom: {
+      zoom: {
+        wheel: {
+          enabled: true
+        },
+        pinch: {
+          enabled: true
+        },
+        mode: 'xy'
+      },
+      pan: {
+        enabled: true,
+        mode: 'xy'
+      }
+    }
   }
 }
 
 onMounted(async () => {
-  if (process.client) {
-    const zoomPlugin = (await import('chartjs-plugin-zoom')).default
+  const zoomPlugin = (await import('chartjs-plugin-zoom')).default
+  ChartJS.register(zoomPlugin)
 
-    ChartJS.register(zoomPlugin)
-
-    chartOptions.plugins = {
-      zoom: {
-        zoom: {
-          wheel: {
-            enabled: true
-          },
-          pinch: {
-            enabled: true
-          },
-          mode: 'xy'
-        },
-        pan: {
-          enabled: true,
-          mode: 'xy'
-        }
-      }
-    }
-  }
   await fetchAndRenderData()
 })
 
@@ -157,6 +155,8 @@ async function fetchAndRenderData(timeRange) {
         break
     }
 
+    
+
     const startDateStr = formatDate(startDate)
     const endDateStr = formatDate(endDate)
 
@@ -165,7 +165,7 @@ async function fetchAndRenderData(timeRange) {
     let totalPages = 1
 
     while (currentPage <= totalPages) {
-      const response = await fetch(`https://api.helldiversstats.com//1.0/getHistoricalPlayerCount?startDate=${startDateStr} 00:00:00&endDate=${endDateStr} 23:59:59&page=${currentPage}`)
+      const response = await fetch(`https://api.helldiversstats.com/1.0/getHistoricalPlayerCount?startDate=${startDateStr} 00:00:00&endDate=${endDateStr} 23:59:59&page=${currentPage}`)
       const data = await response.json()
 
       if (data.totalPages) {
@@ -206,9 +206,6 @@ async function fetchAndRenderData(timeRange) {
     ]
   }    
 
-    if (lineChart) {
-      lineChart.resetZoom()
-    }
   } catch (error) {
     console.error('Error fetching data:', error)
   }

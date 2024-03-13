@@ -1,57 +1,58 @@
 <template>
     <header>
-    <nav class="navbar" role="navigation">
-      <div class="container">
-        <div class="navbar-brand">
-          <nuxt-link to="/" class="navbar-item">
-            <span class="logo">Helldivers Stats</span>
-          </nuxt-link>
-          <button
-            class="navbar-burger"
-            aria-label="Toggle navigation menu"
-            :class="{ 'is-active': isMenuOpen }"
-            @click="toggleMenu"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </button>
-        </div>
-        <div class="navbar-menu" :class="{ 'is-active': isMenuOpen }">
-          <div class="navbar-end">
-            <nuxt-link to="/" class="navbar-item" aria-current="page">Home</nuxt-link>
-            <nuxt-link to="/stats" class="navbar-item disabled">Stats</nuxt-link>
-            <nuxt-link to="/map" class="navbar-item disabled">Map</nuxt-link>
-            <a href="https://discord.gg/gHfzSpfaEJ" target="_blank" class="navbar-item">Discord Server</a>
-            <nuxt-link to="/api_doc" class="navbar-item">API</nuxt-link>
-            <nuxt-link to="/support" class="navbar-item">Support</nuxt-link>
-          </div>
-        </div>
-      </div>
-    </nav>
+        <UHorizontalNavigation :links="links" class="border-b border-gray-200 dark:border-gray-800" />
     </header>
 
 <div>
     <slot />
-
 </div>
 
   </template>
   
   
-  <script>
-  export default {
-    data() {
-      return {
-        isMenuOpen: false
-      }
+  <script setup lang="ts">
+  const route = useRoute()
+  
+  const links = [
+    [
+    {
+      label: 'Home',
+      icon: 'i-heroicons-home',
+      to: '/'
+    }, 
+    {
+      label: 'Stats',
+      icon: 'i-heroicons-chart-bar',
+      to: `/stats`
+    }, 
+    {
+      label: 'Map',
+      icon: 'i-heroicons-map',
+      to: '/map'
     },
-    methods: {
-      toggleMenu() {
-        this.isMenuOpen = !this.isMenuOpen
-      }
-    }
-  }
+    {
+      label: 'API',
+      icon: 'i-heroicons-command-line',
+      to: '/api_doc'
+    },    
+
+    ], 
+    
+    [
+    {
+      label: 'Discord',
+      icon: 'i-cbi-discord',
+      to: 'https://discord.gg/gHfzSpfaEJ'
+    },  
+    {
+       label: 'Profile',
+       avatar: {
+       src: 'https://avatars.githubusercontent.com/u/739984?v=4'
+       },
+       badge: 69
+       },    
+    ],     
+  ]
   </script>
   
   <style scoped>

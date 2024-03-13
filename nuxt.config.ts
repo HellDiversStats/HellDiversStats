@@ -14,9 +14,17 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@vueuse/nuxt',
     'nuxt-og-image',
+    '@samk-dev/nuxt-vcalendar'
+
   ],
 
-  plugins: ['@/plugins/chartjs.ts'],
+  plugins: [
+    '@/plugins/chartjs.ts',
+    '@/plugins/datefns.ts'
+  
+  ],
+
+  
 
   build: {
     transpile: ['vue-chartjs']

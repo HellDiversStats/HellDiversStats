@@ -1,4 +1,10 @@
 <template>
+	<div class="container dark-theme">
+	  <div class="row justify-content-center">
+		<div class="col-md-14">
+
+			<div class="chart-container mx-auto">
+
     <div>
  
       <b-container class="mt-4">
@@ -39,40 +45,69 @@
       </b-container>
   
     </div>
+
+ 				
+
+			</div>		  
+
+		</div>
+	  </div>
+	</div>
   </template>
   
-  <script>
-  export default {
-    data() {
-      return {
-        playerEndpoints: [
-          {
-            title: "/1.0/getPlayerCount",
-            description: "This endpoint allows you to retrieve the player count of both Helldivers games.",
-            method: "GET",
-            parameters: "N/A",
-            requestExample: "/1.0/getPlayerCount",
-            response: `{
-              "helldivers": { "Steam":567,"PS5":0,"HDTotalCount":567},
-              "helldivers2": { "Steam":213225,"PS5":0,"HD2TotalCount":213225},
-              "totalPlayerCount": { "Steam":213792,"PS5":0,"allGamesTotalPlayerCount":213792 }
-            }`,
-            statusCodes: {
-              "200": { text: "OK - Request was successful.", color: "badge-success" },
-              "404": { text: "Not Found - Resource not found.", color: "badge-danger" }
-            }
-          },
-          // More end points gonna be here
-        ],
-        // More categories
-      };
-    }
-  };
-  </script>
-  
   <style scoped>
-  .api-info p {
-    margin-bottom: 0.5rem;
+  .container {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #212529;
   }
-  </style>
   
+  .chart-container {
+	background-color: #343a40;
+	padding: 2rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+	max-height: 70vh; 
+	overflow: auto; 
+  }
+  
+  .dark-theme {
+	color: #e9ecef;
+  }
+  .api-info p {
+  margin-bottom: 0.5rem;
+}
+
+  </style>
+
+<script>
+export default {
+  data() {
+    return {
+      playerEndpoints: [
+        {
+          title: "/1.0/getPlayerCount",
+          description: "This endpoint allows you to retrieve the player count of both Helldivers games.",
+          method: "GET",
+          parameters: "N/A",
+          requestExample: "/1.0/getPlayerCount",
+          response: `{
+            "helldivers": { "Steam":567,"PS5":0,"HDTotalCount":567},
+            "helldivers2": { "Steam":213225,"PS5":0,"HD2TotalCount":213225},
+            "totalPlayerCount": { "Steam":213792,"PS5":0,"allGamesTotalPlayerCount":213792 }
+          }`,
+          statusCodes: {
+            "200": { text: "OK - Request was successful.", color: "badge-success" },
+            "404": { text: "Not Found - Resource not found.", color: "badge-danger" }
+          }
+        },
+        // More end points gonna be here
+      ],
+      // More categories
+    };
+  }
+};
+</script>
+
