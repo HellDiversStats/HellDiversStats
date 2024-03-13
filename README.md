@@ -3,7 +3,7 @@
 This will be the official repo for HellDiversStats.com.  Feel free to modify the project and help out if you'd like! :)
 
 This repo is running on live deployment at https://dev.helldiversstats.com
-Our discord: https://discord.gg/bFMc8cAUvx
+Our discord: https://discord.gg/bgHfzSpfaEJ
 
 # Need to do
 

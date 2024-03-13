@@ -22,7 +22,7 @@
             <nuxt-link to="/" class="navbar-item" aria-current="page">Home</nuxt-link>
             <nuxt-link to="/stats" class="navbar-item disabled">Stats</nuxt-link>
             <nuxt-link to="/map" class="navbar-item disabled">Map</nuxt-link>
-            <a href="https://discord.gg/bFMc8cAUvx" target="_blank" class="navbar-item">Discord Server</a>
+            <a href="https://discord.gg/gHfzSpfaEJ" target="_blank" class="navbar-item">Discord Server</a>
             <nuxt-link to="/api_doc" class="navbar-item">API</nuxt-link>
             <nuxt-link to="/support" class="navbar-item">Support</nuxt-link>
           </div>
