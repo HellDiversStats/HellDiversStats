@@ -7,16 +7,17 @@ Our discord: https://discord.gg/bFMc8cAUvx
 
 # Need to do
 
-Make the website look better
-    Fix navbar - maybe add 'X Currently Playing' to the navbar. 
- Fix historical player chart so its moveable/zoomable
- Add player count table
- Possibly login/register system? (Steam/Sony)
- Add stats page for planets with searchable planets so you can see stats (Maybe add historical data endpoint to API? [Will release API source code soon])
- Add map page so you can see live stats for the map/planets
+- Website
+  - Make design look a bit more modern/better/Helldivery?
+  -  Fix navbar - maybe add 'X Currently Playing' to the navbar. 
+  - Fix historical player chart so its moveable/zoomable
+  - Add player count table
+  - Possibly login/register system? (Steam/Sony)
+ - Add stats page for planets with searchable planets so you can see stats (Maybe add  
+ - Add historical data endpoint to API? [Will release API source code soon])
+ - Add an interactive map page so you can see live stats for the map/planets
 
- Fix API documentation page and add more info
+ - Fix API documentation page and add more info
+ 
+ - Find more game API endpoints
 
-
-
- Find more game API endpoints
